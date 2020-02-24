@@ -24,7 +24,9 @@
         android:enabled="false"
         android:lines="2"
         android:maxLines="2"
-        android:textSize="20sp"
+        android:textSize="35dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
         />
 
     <Button
@@ -178,11 +180,12 @@
         />
     <Button
         android:id="@+id/buttonZero"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_below="@+id/buttonOne"
         android:layout_margin="15sp"
+        android:layout_toRightOf="@id/buttonClear"
         android:text="0"
         android:textSize="@dimen/textSize"
         />
@@ -192,11 +195,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonDot"
-        android:layout_marginTop="20dp"
+        android:layout_margin="15sp"
         android:layout_toRightOf="@id/buttonZero"
         android:text="="
         android:textSize="40sp" />
-
+    <Button
+        android:id="@+id/buttonClear"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonOne"
+        android:layout_margin="15sp"
+        android:text="C"
+        android:textSize="45sp"
+        />
 
 
 
