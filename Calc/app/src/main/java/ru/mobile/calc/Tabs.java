@@ -14,16 +14,16 @@ public class Tabs extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabs);
         TabHost tabHost = getTabHost();
-        TabHost.TabSpec tabSpec = tabHost.newTabSpec("Android");
+        TabHost.TabSpec tabSpec = tabHost.newTabSpec("О себе");
         tabSpec.setContent(new Intent(this, FirstTab.class));
-        tabSpec.setIndicator("Android");
+        tabSpec.setIndicator("О себе");
         tabHost.addTab(tabSpec);
-        tabSpec = tabHost.newTabSpec("Lunux's");
-        tabSpec.setIndicator("Linux systems");
+        tabSpec = tabHost.newTabSpec("Ровы");
+        tabSpec.setIndicator("Ровы");
         tabSpec.setContent(new Intent(this, SecondTab.class));
         tabHost.addTab(tabSpec);
-        tabSpec = tabHost.newTabSpec("Chrome");
-        tabSpec.setIndicator("Weather");
+        tabSpec = tabHost.newTabSpec("Колумны");
+        tabSpec.setIndicator("Колумны");
         tabSpec.setContent(new Intent(this, ThirdTab.class));
         tabHost.addTab(tabSpec);
     }
