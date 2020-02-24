@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonMultiply"
         android:text="7"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:textSize="@dimen/textSize"
         />
     <Button
@@ -87,7 +87,7 @@
         android:layout_below="@id/buttonMultiply"
         android:layout_toRightOf="@+id/buttonSeven"
         android:text="8"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:textSize="@dimen/textSize"
         />
     <Button
@@ -98,17 +98,27 @@
         android:layout_below="@id/buttonMultiply"
         android:layout_toRightOf="@+id/buttonEight"
         android:text="9"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:textSize="@dimen/textSize"
         />
-
+    <Button
+        android:id="@+id/buttonLeftBracket"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonMultiply"
+        android:layout_toRightOf="@+id/buttonNine"
+        android:text=")"
+        android:layout_margin="@dimen/marginButtonSize"
+        android:textSize="@dimen/textSize"
+        />
     <Button
         android:id="@+id/buttonFour"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonSeven"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:text="4"
         android:textSize="@dimen/textSize"
         />
@@ -118,7 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonSeven"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:layout_toRightOf="@id/buttonFour"
         android:text="5"
         android:textSize="@dimen/textSize"
@@ -129,19 +139,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonNine"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:layout_toRightOf="@id/buttonFive"
         android:text="6"
         android:textSize="@dimen/textSize"
         />
-
+    <Button
+        android:id="@+id/buttonRightBracket"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonLeftBracket"
+        android:layout_toRightOf="@+id/buttonSix"
+        android:text="("
+        android:layout_margin="@dimen/marginButtonSize"
+        android:textSize="@dimen/textSize"
+        />
     <Button
         android:id="@+id/buttonOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_below="@+id/buttonFour"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:text="1"
         android:textSize="@dimen/textSize"
         />
@@ -151,7 +171,7 @@
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_below="@+id/buttonFive"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:layout_toRightOf="@+id/buttonOne"
         android:text="2"
         android:textSize="@dimen/textSize"
@@ -162,7 +182,7 @@
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_below="@+id/buttonSix"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:layout_toRightOf="@+id/buttonTwo"
         android:text="3"
         android:textSize="@dimen/textSize"
@@ -173,7 +193,7 @@
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_below="@+id/buttonSix"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:layout_toRightOf="@+id/buttonThree"
         android:text="."
         android:textSize="@dimen/textSize"
@@ -184,7 +204,7 @@
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_below="@+id/buttonOne"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:layout_toRightOf="@id/buttonClear"
         android:text="0"
         android:textSize="@dimen/textSize"
@@ -195,21 +215,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonDot"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:layout_toRightOf="@id/buttonZero"
         android:text="="
-        android:textSize="40sp" />
+        android:textSize="@dimen/textSize" />
     <Button
         android:id="@+id/buttonClear"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonOne"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/marginButtonSize"
         android:text="C"
-        android:textSize="45sp"
+        android:textSize="@dimen/textSize"
         />
-
+    <Button
+        android:id="@+id/buttonRemove"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonDot"
+        android:layout_margin="@dimen/marginButtonSize"
+        android:layout_toRightOf="@id/buttonEquals"
+        android:text="◀"
+        android:textSize="@dimen/textSize"
+        />
 
 
 </RelativeLayout>

@@ -39,7 +39,11 @@ public class Calc extends AppCompatActivity implements View.OnClickListener {
                 R.id.buttonDivision,
                 R.id.buttonDot,
                 R.id.buttonEquals,
-                R.id.buttonClear
+                R.id.buttonClear,
+                R.id.buttonRightBracket,
+                R.id.buttonLeftBracket,
+                R.id.buttonRemove
+
         };
         for (int i:ids){
             ((Button)findViewById(i)).setOnClickListener(this);
@@ -54,153 +58,151 @@ public class Calc extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buttonZero:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "0";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="0";
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonOne:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "1";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="1";
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonTwo:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "2";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="2";
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonThree:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "3";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="3";
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonFour:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "4";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="4";
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonFive:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "5";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="5";
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonSix:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "6";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="6";
+                field.setText(fieldText);
+                break;
+            }
+            case R.id.buttonRightBracket:{
+                String fieldText = field.getText().toString();
+
+                if(!fieldText.matches(".*[\\.\\)]$") && fieldText.matches(".*[\\+\\-\\×\\÷]$")){
+                    fieldText+="(";
+                }
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonSeven:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "7";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="7";
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonEight:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "8";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="8";
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonNine:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                tmp = tmp + "9";
-                field.setText(tmp);
+                String fieldText = field.getText().toString();
+                fieldText+="9";
+                field.setText(fieldText);
                 break;
             }
-            case R.id.buttonDivision:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                String lastSym = charSequence.toString();
-                if (charSequence.length() == 0) {
+            case R.id.buttonLeftBracket:{
+                String fieldText = field.getText().toString();
+
+                if (fieldText.length() == 0) {
                     break;
                 }
-
-                if(!lastSym.matches(".*[\\+\\-\\×\\.\\÷\\.]$")){
-                    tmp = tmp + "÷";
+                if(!fieldText.matches(".*[\\+\\-\\×\\.\\÷\\.\\(]$")){
+                    fieldText+=")";
                 }
-                field.setText(tmp);
+                field.setText(fieldText);
+                break;
+            }
+
+            case R.id.buttonDivision:{
+                String fieldText = field.getText().toString();
+                if (fieldText.length() == 0) {
+                    break;
+                }
+                if(!fieldText.matches(".*[\\+\\-\\×\\.\\÷\\.\\(]$")){
+                    fieldText+="÷";
+                }
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonMultiply:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                String lastSym = charSequence.toString();
-                if (charSequence.length() == 0) {
+                String fieldText = field.getText().toString();
+                if (fieldText.length() == 0) {
                     break;
                 }
-
-                if(!lastSym.matches(".*[\\+\\-\\×\\.\\÷\\.]$")){
-                    tmp = tmp + "×";
+                if(!fieldText.matches(".*[\\+\\-\\×\\.\\÷\\.\\(]$")){
+                    fieldText+="×";
                 }
-                field.setText(tmp);
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonPlus:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                String lastSym = charSequence.toString();
-                if (charSequence.length() == 0) {
+                String fieldText = field.getText().toString();
+
+                if (fieldText.length() == 0) {
                     break;
                 }
-
-                if(!lastSym.matches(".*[\\+\\-\\×\\.\\÷\\.]$")){
-                    tmp = tmp + "+";
+                if(!fieldText.matches(".*[\\+\\-\\×\\.\\÷\\.\\(]$")){
+                    fieldText+="+";
                 }
-                field.setText(tmp);
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonMinus:{
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                String lastSym = charSequence.toString();
-                if (charSequence.length() == 0) {
+                String fieldText = field.getText().toString();
+
+                if (fieldText.length() == 0) {
                     break;
                 }
-
-                if(!lastSym.matches(".*[\\+\\-\\×\\.\\÷\\.]$")){
-                    tmp = tmp + "-";
+                if(!fieldText.matches(".*[\\+\\-\\×\\.\\÷\\.\\(]$")){
+                    fieldText+="-";
                 }
-                field.setText(tmp);
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonDot: {
-                CharSequence charSequence = field.getText();
-                String tmp = charSequence.toString();
-                String lastSym = charSequence.toString();
-                if (charSequence.length() == 0) {
+                String fieldText = field.getText().toString();
+                if (fieldText.length() == 0) {
                     break;
                 }
-
-                if (!lastSym.matches(".*[\\+\\-\\×\\.\\÷\\.]$")) {
-                    tmp = tmp + ".";
+                if (!fieldText.matches(".*[\\+\\-\\×\\.\\÷\\.\\(]$")) {
+                    fieldText+=".";
                 }
-                field.setText(tmp);
+                field.setText(fieldText);
                 break;
             }
             case R.id.buttonClear: {
                 field.setText("");
                 break;
             }
-
             case R.id.buttonEquals: {
-                    CharSequence charSequence = field.getText();
-                    String s = charSequence.toString().replace("÷","/").replace("×","*");
+                    String fieldText = field.getText().toString();
+                    String s = fieldText.replace("÷","/").replace("×","*");
                     List<String> expression = Polska.parse(s);
                     boolean flag = Polska.flag;
 
@@ -211,6 +213,17 @@ public class Calc extends AppCompatActivity implements View.OnClickListener {
                     }
                 break;
             }
+            case R.id.buttonRemove:{
+                String fieldText = field.getText().toString();
+
+                if (fieldText.length() == 0) {
+                    break;
+                }
+                fieldText = fieldText.substring(0,fieldText.length()-1);
+                field.setText(fieldText);
+                break;
+            }
+
 
 
             default:{

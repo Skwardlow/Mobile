@@ -15,14 +15,22 @@
         android:layout_marginTop="30dp"
         />
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonCalc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/logoText"
         android:layout_centerHorizontal="true"
-        android:text="Lab. 1 - Calc"
+        android:text="Calc"
         android:layout_marginTop="50dp"
         />
-
+    <Button
+        android:id="@+id/buttonCompass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonCalc"
+        android:layout_centerHorizontal="true"
+        android:text="Kom"
+        android:layout_marginTop="50dp"
+        />
 </RelativeLayout>
 
