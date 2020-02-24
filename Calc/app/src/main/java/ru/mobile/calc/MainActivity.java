@@ -8,6 +8,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button labCal;
     Button labKom;
+    Button labTab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         labCal.setOnClickListener(this);
         labKom = (Button) findViewById(R.id.buttonCompass);
         labKom.setOnClickListener(this);
+        labTab = (Button) findViewById(R.id.buttonTabs);
+        labTab.setOnClickListener(this);
     }
 
 
@@ -30,6 +33,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonCompass:
                 Intent intent1 = new Intent(this, Compass.class);
                 startActivity(intent1);
+                break;
+            case R.id.buttonTabs:
+                Intent intent2 = new Intent(this, Tabs.class);
+                startActivity(intent2);
                 break;
             default:
                 break;

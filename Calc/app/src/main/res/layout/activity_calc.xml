@@ -32,5 +32,14 @@
         android:text="Kom"
         android:layout_marginTop="50dp"
         />
+    <Button
+        android:id="@+id/buttonTabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonCompass"
+        android:layout_centerHorizontal="true"
+        android:text="Tabs"
+        android:layout_marginTop="50dp"
+        />
 </RelativeLayout>
 
