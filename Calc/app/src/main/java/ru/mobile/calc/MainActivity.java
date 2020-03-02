@@ -9,6 +9,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button labCal;
     Button labKom;
     Button labTab;
+    Button labDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         labKom.setOnClickListener(this);
         labTab = (Button) findViewById(R.id.buttonTabs);
         labTab.setOnClickListener(this);
+        labDB = (Button) findViewById(R.id.buttonSQL);
+        labDB.setOnClickListener(this);
     }
 
 
@@ -37,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonTabs:
                 Intent intent2 = new Intent(this, Tabs.class);
                 startActivity(intent2);
+                break;
+            case R.id.buttonSQL:
+                Intent intent3 = new Intent(this, DB.class);
                 break;
             default:
                 break;
