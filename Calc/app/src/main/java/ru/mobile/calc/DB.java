@@ -2,13 +2,81 @@ package ru.mobile.calc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class DB extends AppCompatActivity {
+    TableLayout tableLayout;
+
+    SQLController sqlController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_db);
+//        sqlController.clearTable();
+//        createAll();
+        BuildTable();
+        sqlController = new SQLController(this);
+    }
+
+    private void BuildTable() {
+
+        sqlController.open();
+//        Cursor c = sqlController.readEntry();
+
+//        int rows = c.getCount();
+//        int cols = c.getColumnCount();
+//
+//        c.moveToFirst();
+//
+//        // outer for loop
+//        for (int i = 0; i < rows; i++) {
+//
+//            TableRow row = new TableRow(this);
+//            row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+//
+//            // inner for loop
+//            for (int j = 0; j < cols; j++) {
+//
+//                TextView tv = new TextView(this);
+//                tv.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+//                tv.setBackgroundResource(R.drawable.ic_launcher_background);
+//                tv.setGravity(Gravity.CENTER);
+//                tv.setTextSize(18);
+//                tv.setPadding(0, 5, 0, 5);
+//
+//                tv.setText(c.getString(j));
+//
+//                row.addView(tv);
+//
+//            }
+//
+//            c.moveToNext();
+//
+//            tableLayout.addView(row);
+//
+//        }
+        sqlController.close();
+    }
+
+
+    private void createAll(){
+        String[] fnames = {"Bariczhan","Kazylbek","Mariczhan","Azerbaiczhan","Nazyrbay","Fatimbek","AbdulHamash","Fatichze"};
+        String[] lnames = {"Hamayamov","Natichanov","Azerbaychzanov","Katamaranov","Suleymanov","Putanov","Afuralov","Durimanov"};
+        Integer height, weight, age;
+        for (int i = 0; i<10; i++){
+            height = 130+ (int) (Math.random() * 70);
+            weight = 40+(int) (Math.random() * 70);
+            age =18+ (int) (Math.random() * 82);
+            sqlController.insertData(fnames[(int) (Math.random()*8)],lnames[(int) (Math.random()*8)],height.toString(),weight.toString(),age.toString());
+        }
     }
 }

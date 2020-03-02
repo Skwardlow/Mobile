@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.buttonSQL:
                 Intent intent3 = new Intent(this, DB.class);
+                startActivity(intent3);
                 break;
             default:
                 break;

@@ -44,4 +44,8 @@ public class SQLController {
         return c;
     }
 
+//    public void clearTable(){
+//        database.execSQL("DROP DATABASE IF EXISTS MEMBER;");
+//    }
+
 }
