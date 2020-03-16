@@ -44,6 +44,15 @@ public class SQLController {
         return c;
     }
 
+    public Cursor readEntryOrderby() {
+        String[] allColumns = new String[] { MyDBHelper.MEMBER_ID, MyDBHelper.MEMBER_FIRSTNAME, MyDBHelper.MEMBER_LASTNAME, MyDBHelper.MEMBER_AGE, MyDBHelper.MEMBER_HEIGHT };
+        Cursor c = database.query(MyDBHelper.TABLE_MEMBER,allColumns,null, null, null ,null,MyDBHelper.MEMBER_AGE);
+        if (c != null) {
+            c.moveToFirst();
+        }
+        return c;
+    }
+
     public void clearTable(){
         database.execSQL("DELETE FROM MEMBER;");
     }

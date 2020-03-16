@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ public class DB extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_db);
 
-        editText = findViewById(R.id.fistname_et_id);
+        //editText = findViewById(R.id.fistname_et_id);
         tableLayout = findViewById(R.id.tableLayout1);
 
         sqlController = new SQLController(this);
@@ -37,24 +38,23 @@ public class DB extends AppCompatActivity {
     private void BuildTable() {
 
         sqlController.open();
-        Cursor c = sqlController.readEntry();
+        Cursor c = sqlController.readEntryOrderby();
 
         int rows = c.getCount();
         int cols = c.getColumnCount();
 
         c.moveToFirst();
 
-        // outer for loop
         for (int i = 0; i < rows; i++) {
 
             TableRow row = new TableRow(this);
             row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
 
-            // inner for loop
             for (int j = 0; j < cols; j++) {
 
                 TextView tv = new TextView(this);
-                tv.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+                tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+                //tv.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
                 tv.setBackgroundResource(R.drawable.ic_launcher_background);
                 tv.setGravity(Gravity.CENTER);
                 tv.setTextSize(18);
