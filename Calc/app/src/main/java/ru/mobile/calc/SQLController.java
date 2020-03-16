@@ -30,13 +30,13 @@ public class SQLController {
         cv.put(MyDBHelper.MEMBER_FIRSTNAME,firstname);
         cv.put(MyDBHelper.MEMBER_LASTNAME,lastname);
         cv.put(MyDBHelper.MEMBER_HEIGHT,height);
-        cv.put(MyDBHelper.MEMBER_WEIGHT,weight);
+//        cv.put(MyDBHelper.MEMBER_WEIGHT,weight);
         cv.put(MyDBHelper.MEMBER_AGE,age);
         database.insert(MyDBHelper.TABLE_MEMBER,null,cv);
     }
 
     public Cursor readEntry() {
-        String[] allColumns = new String[] { MyDBHelper.MEMBER_ID, MyDBHelper.MEMBER_FIRSTNAME, MyDBHelper.MEMBER_LASTNAME };
+        String[] allColumns = new String[] { MyDBHelper.MEMBER_ID, MyDBHelper.MEMBER_FIRSTNAME, MyDBHelper.MEMBER_LASTNAME, MyDBHelper.MEMBER_AGE, MyDBHelper.MEMBER_HEIGHT };
         Cursor c = database.query(MyDBHelper.TABLE_MEMBER, allColumns, null, null, null, null, null);
         if (c != null) {
             c.moveToFirst();
@@ -44,8 +44,8 @@ public class SQLController {
         return c;
     }
 
-//    public void clearTable(){
-//        database.execSQL("DROP DATABASE IF EXISTS MEMBER;");
-//    }
+    public void clearTable(){
+        database.execSQL("DELETE FROM MEMBER;");
+    }
 
 }

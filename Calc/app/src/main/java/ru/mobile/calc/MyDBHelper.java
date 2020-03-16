@@ -16,11 +16,14 @@ public class MyDBHelper extends SQLiteOpenHelper {
     static final String DB_NAME = "MEMBER.DB";
     static final int DB_VERSION = 1;
 
-    private static final String CREATE_TABLE = "create table " + TABLE_MEMBER
-            + "(" + MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + MEMBER_FIRSTNAME + " TEXT NOT NULL ," + MEMBER_LASTNAME
-            + " TEXT NOT NULL, "+MEMBER_HEIGHT+" TEXT NOT NULL, "+MEMBER_WEIGHT+
-            "TEXT NOT NULL, "+MEMBER_AGE+" TEXT NOT NULL);";
+    private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_MEMBER
+            + "("
+            + MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + MEMBER_FIRSTNAME + " TEXT NOT NULL,"
+            + MEMBER_LASTNAME + " TEXT NOT NULL,"
+            + MEMBER_HEIGHT + " TEXT NOT NULL,"
+            + MEMBER_WEIGHT + "TEXT,"
+            + MEMBER_AGE + " TEXT NOT NULL);";
 
 
     public MyDBHelper(Context context){

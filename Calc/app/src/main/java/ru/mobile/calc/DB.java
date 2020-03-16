@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 
 public class DB extends AppCompatActivity {
     TableLayout tableLayout;
+    EditText editText;
 
     SQLController sqlController;
 
@@ -21,49 +23,55 @@ public class DB extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_db);
-//        sqlController.clearTable();
-//        createAll();
-        BuildTable();
+
+        editText = findViewById(R.id.fistname_et_id);
+        tableLayout = findViewById(R.id.tableLayout1);
+
         sqlController = new SQLController(this);
+        sqlController.open();
+        sqlController.clearTable();
+        createAll();
+        BuildTable();
     }
 
     private void BuildTable() {
 
         sqlController.open();
-//        Cursor c = sqlController.readEntry();
+        Cursor c = sqlController.readEntry();
 
-//        int rows = c.getCount();
-//        int cols = c.getColumnCount();
-//
-//        c.moveToFirst();
-//
-//        // outer for loop
-//        for (int i = 0; i < rows; i++) {
-//
-//            TableRow row = new TableRow(this);
-//            row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
-//
-//            // inner for loop
-//            for (int j = 0; j < cols; j++) {
-//
-//                TextView tv = new TextView(this);
-//                tv.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
-//                tv.setBackgroundResource(R.drawable.ic_launcher_background);
-//                tv.setGravity(Gravity.CENTER);
-//                tv.setTextSize(18);
-//                tv.setPadding(0, 5, 0, 5);
-//
-//                tv.setText(c.getString(j));
-//
-//                row.addView(tv);
-//
-//            }
-//
-//            c.moveToNext();
-//
-//            tableLayout.addView(row);
-//
-//        }
+        int rows = c.getCount();
+        int cols = c.getColumnCount();
+
+        c.moveToFirst();
+
+        // outer for loop
+        for (int i = 0; i < rows; i++) {
+
+            TableRow row = new TableRow(this);
+            row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+
+            // inner for loop
+            for (int j = 0; j < cols; j++) {
+
+                TextView tv = new TextView(this);
+                tv.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+                tv.setBackgroundResource(R.drawable.ic_launcher_background);
+                tv.setGravity(Gravity.CENTER);
+                tv.setTextSize(18);
+                tv.setPadding(0, 5, 0, 5);
+
+                tv.setText(c.getString(j));
+
+                System.out.println(c.getString(j));
+
+                row.addView(tv);
+            }
+
+            c.moveToNext();
+
+            tableLayout.addView(row);
+
+        }
         sqlController.close();
     }
 
