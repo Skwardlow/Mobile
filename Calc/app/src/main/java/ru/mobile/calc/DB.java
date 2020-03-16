@@ -49,13 +49,14 @@ public class DB extends AppCompatActivity {
 
             TableRow row = new TableRow(this);
             row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+            row.setBackgroundResource(R.drawable.ic_launcher_foreground);
 
             for (int j = 0; j < cols; j++) {
 
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
                 //tv.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
-                tv.setBackgroundResource(R.drawable.ic_launcher_background);
+                //tv.setBackgroundResource(R.drawable.);
                 tv.setGravity(Gravity.CENTER);
                 tv.setTextSize(18);
                 tv.setPadding(0, 5, 0, 5);
